@@ -18,7 +18,7 @@ public class ScrCover : MonoBehaviour
     {
         if (health == 0)
         {
-            //Destroy(gameObject);
+            Destroy(gameObject);
             Debug.Log("Crate Gone!");
         }
     }
