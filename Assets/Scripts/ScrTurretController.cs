@@ -38,6 +38,7 @@ public class ScrTurretController : MonoBehaviour
         if (playerCheck)
         {
             Vector3 direction = target.position - transform.position; //gets the offset from players starting position to the turrets
+            direction.z = 0;
             Quaternion targetRot = Quaternion.FromToRotation(Vector3.right, direction); //creates a rotation where the x axis points towards direction
             transform.rotation = Quaternion.RotateTowards(transform.localRotation, targetRot, Time.deltaTime * rotSpeed); //rotation of turret points towards players location which moves according to rotSpeed 
         }

@@ -23,13 +23,13 @@ public class ScrCover : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(other.gameObject.CompareTag("Projectile")) //checks if crate is hit by projectile
+        if(collision.gameObject.CompareTag("Projectile")) //checks if crate is hit by projectile
         {
             Debug.Log("Crate Hit!");
             health--;
-            Destroy(other.gameObject);
+            Destroy(collision.gameObject);
         }
     }
 }

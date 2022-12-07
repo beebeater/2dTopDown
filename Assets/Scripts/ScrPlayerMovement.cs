@@ -4,31 +4,45 @@ using UnityEngine;
 
 public class ScrPlayerMovement : MonoBehaviour
 {
-    [SerializeField] float plrSpeed;
+    [SerializeField] float walkSpeed;
+    [SerializeField] float maxSpeed;
+
     [SerializeField] Rigidbody2D rb;
 
-    Vector2 movement;
+    float horizontalInput;
+    float verticalInput;
 
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-        ;
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
     }
 
     // FixedUpdate is frame rate independent
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * plrSpeed * Time.fixedDeltaTime);
+        if (horizontalInput != 0 || verticalInput !=0)
+        {
+            if ( horizontalInput != 0 && verticalInput != 0)
+            {
+                horizontalInput = horizontalInput * maxSpeed;
+                verticalInput = verticalInput * maxSpeed;
+            }
+            rb.velocity = new Vector2(horizontalInput * walkSpeed, verticalInput * walkSpeed);
+        }
+        else
+        {
+            rb.velocity = new Vector2(0f, 0f);
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.gameObject.CompareTag("Projectile")) //checks if player is hit by projectile
+        if (collision.gameObject.CompareTag("Projectile")) //checks if player is hit by projectile
         {
             Debug.Log("Player Dead!");
-            Destroy(other.gameObject);
+            Destroy(collision.gameObject);
             Destroy(gameObject);
         }
     }

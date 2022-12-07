@@ -74,5 +74,10 @@ public class ScrPlayerController : MonoBehaviour
             //Destroy(other.gameObject);
             //Destroy(gameObject);
         }
+        if (other.gameObject.CompareTag("Obj")) //checks if player is hit by projectile
+        {
+            //Destroy(other.gameObject);
+            //Destroy(gameObject);
+        }
     }
 }
