@@ -8,6 +8,7 @@ public class ScrPlayerMovement : MonoBehaviour
 
 
     [SerializeField] Rigidbody2D rb;
+    Animator anim;
 
     //float horizontalInput;
     //float verticalInput;
@@ -16,12 +17,15 @@ public class ScrPlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
     void Update()
     {
         //horizontalInput = Input.GetAxisRaw("Horizontal");
         //verticalInput = Input.GetAxisRaw("Vertical");
         moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        anim.SetFloat("moveX", moveInput.x);
+        anim.SetFloat("moveY", moveInput.y);
     }
 
     // FixedUpdate is frame rate independent
