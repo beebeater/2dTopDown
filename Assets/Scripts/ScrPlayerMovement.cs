@@ -5,31 +5,38 @@ using UnityEngine;
 public class ScrPlayerMovement : MonoBehaviour
 {
     [SerializeField] float walkSpeed;
-    [SerializeField] float maxSpeed;
+
 
     [SerializeField] Rigidbody2D rb;
 
-    float horizontalInput;
-    float verticalInput;
+    //float horizontalInput;
+    //float verticalInput;
+    Vector2 moveInput;
 
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
     void Update()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        //horizontalInput = Input.GetAxisRaw("Horizontal");
+        //verticalInput = Input.GetAxisRaw("Vertical");
+        moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
     }
 
     // FixedUpdate is frame rate independent
 
     void FixedUpdate()
     {
-        if (horizontalInput != 0 || verticalInput !=0)
+        if (moveInput.x != 0 || moveInput.y !=0)
         {
-            if ( horizontalInput != 0 && verticalInput != 0)
-            {
-                horizontalInput = horizontalInput * maxSpeed;
-                verticalInput = verticalInput * maxSpeed;
-            }
-            rb.velocity = new Vector2(horizontalInput * walkSpeed, verticalInput * walkSpeed);
+            /*if ( horizontalInput != 0 && verticalInput != 0)
+            *{
+             *   horizontalInput = horizontalInput * maxSpeed;
+              *  verticalInput = verticalInput * maxSpeed;
+            }*/
+            rb.velocity = new Vector2(moveInput.x * walkSpeed , moveInput.y * walkSpeed);
+            Debug.Log("speed"+rb.velocity);
         }
         else
         {
