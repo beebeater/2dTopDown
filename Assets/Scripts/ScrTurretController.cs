@@ -57,7 +57,14 @@ public class ScrTurretController : MonoBehaviour
 
     void ShootingProjectile()
     {
-        GameObject projectile = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation); //temporary solution to instantiate projectile at spawn point. ideally we take projectiles from a pooled object instead of creating a new one
+        //GameObject projectile = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation); 
+        GameObject projectile = ScrProjectilePool.instance.GetPooledProjectile();
+        if(projectile != null)
+        {
+            projectile.transform.position = projectileSpawn.position;
+            projectile.transform.rotation = projectileSpawn.rotation;
+            projectile.SetActive(true);
+        }
         bulletRB = projectile.GetComponent<Rigidbody2D>();
         bulletRB.AddForce(projectileSpawn.rotation * projectileSpeed, ForceMode2D.Impulse); //pushes projectile towards its x rotation
     }

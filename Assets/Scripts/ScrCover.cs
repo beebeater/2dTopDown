@@ -29,7 +29,8 @@ public class ScrCover : MonoBehaviour
         {
             Debug.Log("Crate Hit!");
             health--;
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
         }
     }
 }
