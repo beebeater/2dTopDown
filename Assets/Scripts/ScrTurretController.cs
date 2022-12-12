@@ -11,6 +11,8 @@ public class ScrTurretController : MonoBehaviour
     [SerializeField] LayerMask playerLayer;
     bool playerCheck;
 
+    [SerializeField] SpriteRenderer sprite;
+
     [Header("Projectile")]
     [SerializeField] Transform projectileSpawn;
     [SerializeField] GameObject projectilePrefab;
@@ -22,7 +24,7 @@ public class ScrTurretController : MonoBehaviour
 
     private void Awake()
     {
-
+        sprite = GetComponentInChildren<SpriteRenderer>();
     }
     // Start is called before the first frame update
     void Start()
@@ -41,6 +43,15 @@ public class ScrTurretController : MonoBehaviour
             direction.z = 0;
             Quaternion targetRot = Quaternion.FromToRotation(Vector3.right, direction); //creates a rotation where the x axis points towards direction
             transform.rotation = Quaternion.RotateTowards(transform.localRotation, targetRot, Time.deltaTime * rotSpeed); //rotation of turret points towards players location which moves according to rotSpeed 
+        }
+        
+        if (transform.rotation.eulerAngles.z > 0 && transform.rotation.eulerAngles.z < 180)
+        {
+            sprite.sortingOrder = 1;
+        }
+        else
+        { 
+            sprite.sortingOrder = 3; 
         }
     }
     private void FixedUpdate()
