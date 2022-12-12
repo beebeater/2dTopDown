@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -1189,12 +1189,12 @@ TextureImporter:
       Modern Fantasy JRPG Character Sprites (transparent)_38: -915703176
       Modern Fantasy JRPG Character Sprites (transparent)_39: 1564062101
       Modern Fantasy JRPG Character Sprites (transparent)_43: 934415733
+      Modern Fantasy JRPG Character Sprites (transparent)_24: -2144023792
       Modern Fantasy JRPG Character Sprites (transparent)_40: 1222529860
-      Modern Fantasy JRPG Character Sprites (transparent)_41: -1102613925
       Modern Fantasy JRPG Character Sprites (transparent)_11: 1065805784
       Modern Fantasy JRPG Character Sprites (transparent)_8: -637645444
       Modern Fantasy JRPG Character Sprites (transparent)_23: 378830362
-      Modern Fantasy JRPG Character Sprites (transparent)_24: -2144023792
+      Modern Fantasy JRPG Character Sprites (transparent)_41: -1102613925
       Modern Fantasy JRPG Character Sprites (transparent)_3: -151002771
       Modern Fantasy JRPG Character Sprites (transparent)_32: -1946000889
       Modern Fantasy JRPG Character Sprites (transparent)_14: 1630989036
