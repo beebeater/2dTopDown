@@ -18,6 +18,8 @@ public class ScrTurretController : MonoBehaviour
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] private float minShootWaitTime = 0.1f, maxShootWaitTime = 0.2f;
 
+    [SerializeField] private AudioSource shootSoundEffect;
+
     Rigidbody2D bulletRB;
     public Vector2 projectileSpeed;
     private float waitTime;
@@ -72,6 +74,7 @@ public class ScrTurretController : MonoBehaviour
         GameObject projectile = ScrProjectilePool.instance.GetPooledProjectile();
         if(projectile != null)
         {
+            shootSoundEffect.Play();
             projectile.transform.position = projectileSpawn.position;
             projectile.transform.rotation = projectileSpawn.rotation;
             projectile.SetActive(true);
