@@ -5,8 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour
 {
+    [SerializeField] AudioSource clickSoundEffect;
+        
     public void UpdatingScene()
     {
         SceneManager.LoadScene(2);
+    }
+
+    public void Sounds()
+    {
+        clickSoundEffect.Play();
     }
 }
