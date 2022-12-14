@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScrPlayerMovement : MonoBehaviour
 {
@@ -53,8 +54,16 @@ public class ScrPlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Projectile")) //checks if player is hit by projectile
         {
             Debug.Log("Player Dead!");
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
+            StartCoroutine(UIWaitTime());
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
+
+    }
+    IEnumerator UIWaitTime()
+    {
+        yield return new WaitForSeconds(2);
+
+        SceneManager.LoadScene(2);
     }
 }
