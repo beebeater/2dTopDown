@@ -49,11 +49,11 @@ public class ScrTurretController : MonoBehaviour
         
         if (transform.rotation.eulerAngles.z > 0 && transform.rotation.eulerAngles.z < 180)
         {
-            sprite.sortingOrder = 1;
+            sprite.sortingOrder = 19;
         }
         else
         { 
-            sprite.sortingOrder = 3; 
+            sprite.sortingOrder = 21; 
         }
     }
     private void FixedUpdate()

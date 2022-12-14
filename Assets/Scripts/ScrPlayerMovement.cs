@@ -14,6 +14,7 @@ public class ScrPlayerMovement : MonoBehaviour
     //float horizontalInput;
     //float verticalInput;
     Vector2 moveInput;
+    bool isDead;
 
     private void Awake()
     {
@@ -24,9 +25,12 @@ public class ScrPlayerMovement : MonoBehaviour
     {
         //horizontalInput = Input.GetAxisRaw("Horizontal");
         //verticalInput = Input.GetAxisRaw("Vertical");
-        moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-        anim.SetFloat("moveX", moveInput.x);
-        anim.SetFloat("moveY", moveInput.y);
+        if (!isDead)
+        {
+            moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+            anim.SetFloat("moveX", moveInput.x);
+            anim.SetFloat("moveY", moveInput.y);
+        }
     }
 
     // FixedUpdate is frame rate independent
@@ -54,6 +58,7 @@ public class ScrPlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Projectile")) //checks if player is hit by projectile
         {
             Debug.Log("Player Dead!");
+            isDead = true;
             StartCoroutine(UIWaitTime());
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
