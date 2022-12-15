@@ -10,6 +10,7 @@ TagManager:
   - Obj
   - Cover
   - Canvas
+  - Key
   layers:
   - Default
   - TransparentFX

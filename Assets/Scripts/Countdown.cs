@@ -22,5 +22,7 @@ public class Countdown : MonoBehaviour
     {
         currentScore = score += 1 * Time.deltaTime;
         scoreText.text = "Score: " + currentScore.ToString();
+        //Debug.Log("score1 "+ scoreText.text);
+        //Debug.Log("score2 " + Time.timeSinceLevelLoad);
     }
 }
