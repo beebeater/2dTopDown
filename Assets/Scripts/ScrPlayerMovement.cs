@@ -71,18 +71,12 @@ public class ScrPlayerMovement : MonoBehaviour
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
 
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if(collision.gameObject.CompareTag("Key"))
+        if (collision.gameObject.CompareTag("Key"))
         {
-            if(Input.GetKeyDown(KeyCode.E))
-            {
-                hasKey = true;
-                collision.gameObject.SetActive(false);
-            }
+            hasKey = true;
+            collision.gameObject.SetActive(false);
         }
+
     }
     IEnumerator UIWaitTime()
     {
