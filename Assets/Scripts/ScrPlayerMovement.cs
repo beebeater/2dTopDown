@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ScrPlayerMovement : MonoBehaviour
 {
     [SerializeField] float walkSpeed;
 
-
     [SerializeField] Rigidbody2D rb;
     Animator anim;
+
+    public Canvas playAgainOverlay;
 
     //float horizontalInput;
     //float verticalInput;
@@ -57,9 +59,10 @@ public class ScrPlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Projectile")) //checks if player is hit by projectile
         {
+            playAgainOverlay.enabled = true;
             Debug.Log("Player Dead!");
             isDead = true;
-            StartCoroutine(UIWaitTime());
+            //StartCoroutine(UIWaitTime());
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
