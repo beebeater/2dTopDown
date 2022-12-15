@@ -12,6 +12,7 @@ public class ScrPlayerMovement : MonoBehaviour
     Animator anim;
 
     public Canvas playAgainOverlay;
+    public Canvas exitCanvas;
 
     //float horizontalInput;
     //float verticalInput;
@@ -60,6 +61,7 @@ public class ScrPlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Projectile")) //checks if player is hit by projectile
         {
             playAgainOverlay.enabled = true;
+            exitCanvas.enabled = true;
             Debug.Log("Player Dead!");
             isDead = true;
             //StartCoroutine(UIWaitTime());
