@@ -147,3 +147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  destLevel:
+  - {fileID: 46335037, guid: ae5dbba32b2c3644ba366d50aab915b2, type: 3}
+  - {fileID: -442976496, guid: ae5dbba32b2c3644ba366d50aab915b2, type: 3}
+  - {fileID: 2013466785, guid: ae5dbba32b2c3644ba366d50aab915b2, type: 3}
+  - {fileID: 614749601, guid: ae5dbba32b2c3644ba366d50aab915b2, type: 3}

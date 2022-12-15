@@ -6,10 +6,16 @@ public class ScrCover : MonoBehaviour
 {
     BoxCollider2D col;
     public float health;
+    SpriteRenderer spriteRenderer;
+
+    [Header("Sprite Settings:")]
+    public Sprite[] destLevel;
+
     // Start is called before the first frame update
     void Start()
     {
         col = GetComponent<BoxCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         
     }
 
@@ -29,6 +35,7 @@ public class ScrCover : MonoBehaviour
         {
             Debug.Log("Crate Hit!");
             health--;
+            spriteRenderer.sprite = destLevel[(int)health - 1];
             //Destroy(collision.gameObject);
             collision.gameObject.SetActive(false);
         }

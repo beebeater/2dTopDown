@@ -3700,6 +3700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+  destLevel: []
 --- !u!50 &2024723538
 Rigidbody2D:
   serializedVersion: 4
