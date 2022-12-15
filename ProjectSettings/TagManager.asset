@@ -8,6 +8,7 @@ TagManager:
   - Projectile
   - Ground
   - Obj
+  - Cover
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - whatIsEnemy
   - whatIsGround
   - Wall
-  - 
+  - Cover
   - 
   - 
   - 
