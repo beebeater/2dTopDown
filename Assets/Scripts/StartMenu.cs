@@ -9,7 +9,7 @@ public class StartMenu : MonoBehaviour
         
     public void UpdatingScene()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 
     public void Sounds()
