@@ -7,7 +7,7 @@ public class ExitScript : MonoBehaviour
 {
     public void UpdatingScene()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     public void Sounds()

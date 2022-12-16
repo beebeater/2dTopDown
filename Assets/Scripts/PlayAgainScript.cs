@@ -7,6 +7,6 @@ public class PlayAgainScript : MonoBehaviour
 {
     public void RestartLevel()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
