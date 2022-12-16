@@ -27,8 +27,10 @@ public class ScrDoors : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             if (doorOpen)
-            {
+            {   
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                if(SceneManager.GetActiveScene().buildIndex == 3)
+                    SceneManager.LoadScene(0);
             }
         }
     }
